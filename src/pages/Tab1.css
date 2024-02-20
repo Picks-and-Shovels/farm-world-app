@@ -1,0 +1,75 @@
+.home-container {
+    --background: #FFF6DF;
+}
+
+.home-container ion-header ion-toolbar {
+    --background: #FFF6DF;
+}
+.home-container ion-content {
+    --background: #FFF6DF;
+}
+
+.tile-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.tile {
+}
+
+.tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.field-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    margin-top: auto;
+}
+.map-container {
+    padding: 20px;
+    position:relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    background-image: url('/assets/Frame.png');
+    background-size: cover;
+    background-position: center 75%;
+}
+
+.field-container {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    background: #604B4B;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.field-container .field-image {
+    width: 80px;
+    height: 80px;
+}
+.field-container .percentage {
+    position: absolute;
+    bottom: 50%;
+    top: 50%;
+    color: #fff;
+    transform: translateY(-50%);
+    font-weight: 600;
+}
+
+.field-container .overlay {
+    border-radius: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}

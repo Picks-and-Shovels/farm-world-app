@@ -1,0 +1,7 @@
+{
+  "name": "farmworld",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}

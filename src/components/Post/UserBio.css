@@ -1,0 +1,11 @@
+.user-bio-with-username {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.user-bio-with-username ion-avatar {
+    margin-bottom: 10px;
+    width: 55px;
+    height: 55px;
+}

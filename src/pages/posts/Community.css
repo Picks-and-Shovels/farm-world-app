@@ -1,0 +1,72 @@
+.community-header {
+    display: flex;
+    gap: 24px;
+    padding: 20px;
+}
+
+.community-header .post-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 16px;
+}
+.community-header .post-header .tags {
+    font-size: 14px;
+    color: var(--gray);
+}
+
+.community-inner {
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--ion-color-step-950, #f3f3f3);
+}
+.community-content {
+}
+
+.community-content p {
+    min-height: 120px;
+    margin-bottom: 24px;
+    padding: 20px;
+}
+
+.community-content .post-images {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    margin-left: 20px;
+}
+.community-content .post-images .post-image {
+    flex: 0 0 auto;
+}
+
+.community-content .post-images img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.community-comments {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.community-comments .comment {
+    display: flex;
+    gap: 20px;
+    padding: 9px 20px;
+    border-bottom: 1px solid var(--ion-color-step-950, #f3f3f3);
+}
+.comment .comment-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.comment .comment-content p {
+    margin: 12px 0 0;
+}
+.comment .comment-date {
+    text-align: right;
+}

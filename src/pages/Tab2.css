@@ -1,0 +1,9 @@
+.diary-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.diary-content ion-datetime {
+    max-width: 100%;
+}

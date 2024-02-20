@@ -1,0 +1,47 @@
+.diary-item {
+    display: flex;
+    flex-direction: column;
+    padding: 9px 10px;
+    border: 1px solid #6c6c6c;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.diary-item strong {
+    font-size: 15px;
+    font-weight: 500;
+}
+.diary-item .tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 8px 0;
+}
+.diary-item ion-chip {
+    padding: 3px 9px 2px;
+    font-size: 11px;
+    min-height: 20px;
+    margin: 0;
+}
+
+.diary-item-content p {
+    min-height: 120px;
+    margin-bottom: 24px;
+    padding: 20px;
+}
+
+.diary-content .diary-images {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+}
+.diary-content .diary-images .diary-image {
+    flex: 0 0 auto;
+}
+
+.diary-content .diary-images img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
