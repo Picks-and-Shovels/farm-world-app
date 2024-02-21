@@ -2,7 +2,6 @@ import Post from "./Post";
 import { PostListItem } from "./PostListItem";
 
 import "./PostList.css";
-import { IonList } from "@ionic/react";
 
 interface PostListProps {
   posts: Post[];

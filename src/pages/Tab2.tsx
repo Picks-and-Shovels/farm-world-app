@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react';
 import {
   IonBackButton,
   IonButton,
@@ -14,22 +15,8 @@ import "./Tab2.css";
 import { create, createOutline, heart, heartOutline } from "ionicons/icons";
 import Diary from "../components/Diary/Diary";
 import { DiaryList } from "../components/Diary/DiaryList";
-import { useState } from "react";
-
-const diaries = [
-  new Diary("1", "2024-02-19", ["#tag1", "#tag2"], "This is the first diary", [
-    "https://via.placeholder.com/150",
-    "https://via.placeholder.com/150",
-    "https://via.placeholder.com/150",
-  ]),
-  new Diary("2", "2024-02-20", ["#tag1", "#tag2"], "This is the second diary", [
-    "https://via.placeholder.com/150",
-  ]),
-  new Diary("3", "2024-02-21", ["#tag1", "#tag2"], "This is the third diary", [
-    "https://via.placeholder.com/150",
-  ]),
-];
-diaries.sort((a, b) => b.date.getTime() - a.date.getTime());
+import { RefresherEventDetail } from "@ionic/core";
+import { IonRefresher, IonRefresherContent } from "@ionic/react";
 
 const formatDate = (date: Date) => {
   const year = date.getFullYear();
@@ -43,7 +30,30 @@ const formatDate = (date: Date) => {
 
 const Tab2: React.FC = () => {
   const [date, setDate] = useState(formatDate(new Date()));
+  const [diaries, setDiaries] = useState<Diary[]>([]);
+
+  const fetchDiaries = async () => {
+    try {
+      const response = await fetch(`http://honghyunmin.shop:3000/journal/${date}`);
+      const data = [await response.json()];
+      setDiaries(data); // 데이터를 상태로 설정
+    } catch (error) {
+      console.error("Failed to fetch posts:", error);
+    }
+  };
+
+  const handleRefresh = async (event: CustomEvent<RefresherEventDetail>) => {
+    await fetchDiaries(); // 데이터 다시 불러오기
+    event.detail.complete(); // 리프레셔 완료
+  };
+
+  useEffect(() => {
+    fetchDiaries(); // 컴포넌트 마운트 시 데이터 불러오기
+  }, []);
+  
   console.log(date);
+  console.log(diaries);
+
   return (
     <IonPage>
       <IonHeader className="ion-no-border">
@@ -57,10 +67,13 @@ const Tab2: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
+        <IonRefresher slot="fixed" onIonRefresh={handleRefresh}>
+          <IonRefresherContent></IonRefresherContent>
+        </IonRefresher>
         <div className="diary-content">
           <IonDatetime
             presentation="date"
-            locale="en-US"
+            locale="ko-KR"
             value={date}
             onIonChange={(e) => {
               const v = e.detail.value;
