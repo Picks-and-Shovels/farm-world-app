@@ -1,3 +1,9 @@
 export default class User {
-  constructor(public id: string, public name: string, public image: string) {}
+  constructor(
+    public id: number,
+    public nickname: string,
+    public username: string,
+    public name: string,
+    public age: number
+    ) {}
 }

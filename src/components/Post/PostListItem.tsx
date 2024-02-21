@@ -18,11 +18,10 @@ export const PostListItem = ({ post }: PostListItemProps) => {
         <div className="details">
           <div className="views">
             <IonIcon icon={eyeOutline} />
-            {post.totalViews} {/* 수정됨 */}
+            {post.totalViews}
           </div>
           <div className="likes">
-            {/* 조회수 대신 댓글 수 또는 다른 정보를 표시할 수 있습니다. */}
-            <IonIcon icon={heartOutline} />{post.totalLikes} {/* 수정됨 */}
+            <IonIcon icon={heartOutline} />{post.totalLikes}
           </div>
         </div>
       </div>

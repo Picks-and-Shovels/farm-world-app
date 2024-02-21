@@ -1,10 +1,7 @@
 export default class Post {
   constructor(
-    public id: string,
+    public id: number,
     public title: string,
-    public content: string,
-    public imageUrl: string,
-    public creator: string,
     public totalViews: number,
     public totalLikes: number
   ) {}
