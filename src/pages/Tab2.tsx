@@ -62,6 +62,12 @@ const Tab2: React.FC = () => {
             presentation="date"
             locale="en-US"
             value={date}
+            onIonChange={(e) => {
+              const v = e.detail.value;
+              if (!v) return;
+              if (Array.isArray(v)) setDate(v[0]);
+              else setDate(v);
+            }}
             highlightedDates={diaries.map((diary) => ({
               date: diary._date,
               backgroundColor: "#c8e5d0",
