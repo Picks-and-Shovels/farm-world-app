@@ -4,6 +4,8 @@ export default class Post {
     public title: string,
     public content: string,
     public imageUrl: string,
-    public creator: string
+    public creator: string,
+    public totalViews: number,
+    public totalLikes: number
   ) {}
 }
