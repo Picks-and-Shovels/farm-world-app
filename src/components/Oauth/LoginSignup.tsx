@@ -1,22 +1,18 @@
 import React, { useState } from 'react';
 import './LoginSignup.css';
-// 필요한 다른 컴포넌트나 라이브러리를 여기에 추가하세요
 
 const LoginSignup = () => {
-  // 로그인 및 회원가입 폼의 상태 관리를 위한 state를 정의하세요
+  const [isSignup, setIsSignup] = useState(false);
   const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [age, setAge] = useState('');
   const [password, setPassword] = useState('');
 
-  // 사용자가 폼에 입력할 때 호출되는 핸들러 함수들을 정의하세요
-  const handleEmailChange = (event: any) => {
-    setEmail(event.target.value);
-  };
+  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => setEmail(event.target.value);
+  const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => setName(event.target.value);
+  const handleAgeChange = (event: React.ChangeEvent<HTMLInputElement>) => setAge(event.target.value);
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => setPassword(event.target.value);
 
-  const handlePasswordChange = (event: any) => {
-    setPassword(event.target.value);
-  };
-
-  // 로그인 및 회원가입 요청을 처리할 핸들러 함수를 정의하세요
   const handleLogin = () => {
     // 로그인 로직 구현
   };
@@ -25,26 +21,52 @@ const LoginSignup = () => {
     // 회원가입 로직 구현
   };
 
+  const toggleForm = () => {
+    setIsSignup(!isSignup); // Toggle the boolean state to show login or signup
+  };
+
   return (
     <div className="login-signup-container">
       <form>
+        {isSignup ? (
+          <>
+            <input
+              type="text"
+              value={name}
+              onChange={handleNameChange}
+              placeholder="Name"
+            />
+            <input
+              type="text"
+              value={age}
+              onChange={handleAgeChange}
+              placeholder="Age"
+            />
+          </>
+        ) : null}
         <input
           type="email"
           value={email}
           onChange={handleEmailChange}
-          placeholder="이메일"
+          placeholder="Email"
         />
         <input
           type="password"
           value={password}
           onChange={handlePasswordChange}
-          placeholder="비밀번호"
+          placeholder="Password"
         />
-        <button type="button" onClick={handleLogin}>
-          로그인
-        </button>
-        <button type="button" onClick={handleSignup}>
-          회원가입
+        {isSignup ? (
+          <button type="button" onClick={handleSignup}>
+            Register
+          </button>
+        ) : (
+          <button type="button" onClick={handleLogin}>
+            Login
+          </button>
+        )}
+        <button type="button" onClick={toggleForm}>
+          {isSignup ? 'Back to Login' : 'Go to Register'}
         </button>
       </form>
     </div>

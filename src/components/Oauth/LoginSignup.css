@@ -1,62 +1,93 @@
+/* 전체 페이지 스타일 */
+html, body {
+  height: 100%; /* Full height for the body and html */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Centers content vertically */
+  background-color: #f4f4f4; /* Light grey background */
+  background-image: url('farmworld.png'); /* Path to your background image */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 100%;
+  background-attachment: fixed;
+}
+
 /* 로그인 및 회원가입 컨테이너 스타일 */
 .login-signup-container {
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-  }
-  
-  /* 폼 입력 필드 스타일 */
-  .login-signup-container input {
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
-  }
-  
-  /* 폼 입력 필드 포커스 시 스타일 */
-  .login-signup-container input:focus {
-    outline: none;
-    border-color: #4CAF50;
-    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
-  }
-  
-  /* 로그인 및 회원가입 버튼 스타일 */
-  .login-signup-container button {
-    padding: 10px;
-    color: #fff;
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    margin: 5px 0;
-    transition: background-color 0.3s;
-  }
-  
-  /* 버튼 호버 시 스타일 */
-  .login-signup-container button:hover {
-    background-color: #45a049;
-  }
-  
-  /* 버튼 비활성화 스타일 */
-  .login-signup-container button:disabled {
-    background-color: #ccc;
-    cursor: default;
-  }
-  
-  /* 버튼 포커스 시 스타일 */
-  .login-signup-container button:focus {
-    outline: none;
-  }
-  
-  /* 버튼 액티브(클릭 시) 스타일 */
-  .login-signup-container button:active {
-    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.2);
-  }
-  
+  display: flex;
+  flex-direction: column;
+  max-width: 300px; /* Adjusted for a narrower form */
+  width: 100%; /* Full width for smaller screens */
+  margin: auto; /* Auto margins for auto-adjustment */
+  padding: 20px;
+  min-height: 650px; /* Minimum height to stretch the container */
+  justify-content: space-between; /* Distributes space around items */
+  background-color: #fff; /* White background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-sizing: border-box; /* Ensures padding doesn't add to width */
+}
+/* 폼 입력 필드 스타일 */
+.login-signup-container input {
+  margin-bottom: 10px; /* Reduced space between inputs */
+  padding: 12px; /* Slightly larger padding */
+  border: 1px solid #ccc; /* Lighter border color */
+  border-radius: 4px;
+  font-size: 14px; /* Smaller font size */
+  box-sizing: border-box; /* Ensures padding doesn't add to width */
+}
+
+/* 폼 입력 필드 포커스 시 스타일 */
+.login-signup-container input:focus {
+  border-color: #2962ff; /* Blue border for focus */
+  box-shadow: 0 0 0 1px rgba(41, 98, 255, 0.2); /* Subtle blue glow */
+}
+
+/* 로그인 및 회원가입 버튼 스타일 */
+.login-signup-container button {
+  padding: 12px;
+  color: #fff;
+  background-color: #4CAF50; /* Blue background for buttons */
+  border: none;
+  border-radius: 4px; /* Less rounded corners for buttons */
+  cursor: pointer;
+  font-size: 14px;
+
+  margin-top: 10px; /* Spacing above the button */
+  width: 100%; /* Button width extends to full container width */
+  box-sizing: border-box; /* Ensures padding doesn't add to width */
+  transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transitions */
+}
+
+/* 버튼 호버 시 스타일 */
+.login-signup-container button:hover {
+  background-color: #0039cb; /* Darker blue on hover */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Slight shadow on hover */
+}
+
+/* 버튼 비활성화 스타일 */
+.login-signup-container button:disabled {
+  background-color: #ccc;
+  cursor: default;
+}
+
+/* 버튼 포커스 시 스타일 */
+.login-signup-container button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(41, 98, 255, 0.4); /* Blue glow on focus */
+}
+
+/* 버튼 액티브(클릭 시) 스타일 */
+.login-signup-container button:active {
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); /* Inner shadow for click effect */
+}
+
+/* Additional styles for signup form elements */
+/* You may need to adjust these styles if you have specific signup form elements */
+.login-signup-container input[type="text"], /* Styles for text inputs, if any */
+.login-signup-container input[type="email"], /* Styles for email inputs */
+.login-signup-container input[type="password"] { /* Styles for password inputs */
+  /* Add any specific styles for text, email, and password inputs here */
+}
