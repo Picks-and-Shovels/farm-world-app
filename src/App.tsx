@@ -10,7 +10,8 @@ import {
   setupIonicReact,
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import { book, home, newspaper } from "ionicons/icons";
+import { book, home, newspaper,personAddOutline } from "ionicons/icons";
+import LoginSignup from "./components/Oauth/LoginSignup";
 import Tab1 from "./pages/Tab1";
 import Tab2 from "./pages/Tab2";
 import Tab3 from "./pages/Tab3";
@@ -43,6 +44,9 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
+          <Route exact path="/login-signup">
+            <LoginSignup />
+          </Route>
           <Route exact path="/home">
             <Tab1 />
           </Route>
@@ -59,6 +63,10 @@ const App: React.FC = () => (
           </Route>
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
+          <IonTabButton tab="login-signup" href="/login-signup">
+            <IonIcon aria-hidden= "true" icon = {personAddOutline} />
+            <IonLabel>Login/Signup</IonLabel>
+          </IonTabButton>
           <IonTabButton tab="home" href="/home">
             <IonIcon aria-hidden="true" icon={home} />
             <IonLabel>home</IonLabel>
