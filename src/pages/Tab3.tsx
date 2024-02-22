@@ -15,6 +15,7 @@ import {
 import "./Tab3.css";
 import { PostList } from "../components/Post/PostList";
 import { add } from "ionicons/icons";
+import Post from '../components/Post/Post';
 
 const Tab3: React.FC = () => {
   const [posts, setPosts] = useState<any[]>([]);
@@ -22,8 +23,17 @@ const Tab3: React.FC = () => {
   const fetchPosts = async () => {
     try {
       const response = await fetch('http://honghyunmin.shop:3000/boards/posts');
-      const data = await response.json();
-      setPosts(data); // 데이터를 상태로 설정
+      const rawData = await response.json();
+      const transformedData = rawData.map((post: any) => new Post(
+        post.id, // API와 Post 클래스의 필드를 맞춰주세요
+        post.title,
+        post.content,
+        post.imageUrl,
+        post.creator,
+        post.totalViews,
+        post.totalLikes,
+      ));
+      setPosts(transformedData);
     } catch (error) {
       console.error("Failed to fetch posts:", error);
     }

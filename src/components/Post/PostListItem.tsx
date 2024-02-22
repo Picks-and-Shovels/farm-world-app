@@ -28,4 +28,4 @@ export const PostListItem = ({ post }: PostListItemProps) => {
     </div>
     </IonRouterLink>
   );
-};
+};  
