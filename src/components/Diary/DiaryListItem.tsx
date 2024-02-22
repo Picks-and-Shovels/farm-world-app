@@ -10,7 +10,8 @@ interface DiaryListItemProps {
 export const DiaryListItem = ({ diary }: DiaryListItemProps) => {
   return (
     <div className="diary-item">
-      <strong>{diary._date}</strong>
+      <strong>{diary.date}</strong>
+      <h3>{diary.title}</h3>
       <div className="diary-content">
         <p>{diary.content}</p>
       </div>
