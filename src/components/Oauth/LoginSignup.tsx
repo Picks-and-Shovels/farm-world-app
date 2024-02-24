@@ -26,7 +26,7 @@ const LoginSignup = () => {
   };
 
   return (
-    <div className="login-signup-container">
+    <div className={`login-signup-container ${isSignup ? 'signup' : 'login'}`}>
       <form>
         {isSignup ? (
           <>
