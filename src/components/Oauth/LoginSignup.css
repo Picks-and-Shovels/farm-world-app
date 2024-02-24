@@ -21,13 +21,18 @@ html, body {
   max-width: 300px; /* Adjusted for a narrower form */
   width: 100%; /* Full width for smaller screens */
   margin: auto; /* Auto margins for auto-adjustment */
-  padding: 20px;
-  min-height: 650px; /* Minimum height to stretch the container */
-  justify-content: space-between; /* Distributes space around items */
+  padding : 0 20px  20px 20px;
+  justify-content: flex-end; /* Distributes space around items */
   background-color: #fff; /* White background */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   box-sizing: border-box; /* Ensures padding doesn't add to width */
+}
+.login-signup-container.login{
+  min-height : 252px;
+}
+.login-signup-container.signup{
+  min-height : 360px
 }
 /* 폼 입력 필드 스타일 */
 .login-signup-container input {
