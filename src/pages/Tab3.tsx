@@ -27,11 +27,8 @@ const Tab3: React.FC = () => {
       const transformedData = rawData.map((post: any) => new Post(
         post.id, // API와 Post 클래스의 필드를 맞춰주세요
         post.title,
-        post.content,
-        post.imageUrl,
-        post.creator,
         post.totalViews,
-        post.totalLikes,
+        post.totalLikes
       ));
       setPosts(transformedData);
     } catch (error) {

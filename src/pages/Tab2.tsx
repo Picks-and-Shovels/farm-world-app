@@ -1,3 +1,4 @@
+// TAB2.tsx
 import React, { useEffect, useState } from 'react';
 import {
   IonBackButton,
@@ -12,11 +13,9 @@ import {
   IonToolbar,
 } from "@ionic/react";
 import "./Tab2.css";
-import { create, createOutline, heart, heartOutline } from "ionicons/icons";
+import { createOutline } from "ionicons/icons";
 import Diary from "../components/Diary/Diary";
 import { DiaryList } from "../components/Diary/DiaryList";
-import { RefresherEventDetail } from "@ionic/core";
-import { IonRefresher, IonRefresherContent } from "@ionic/react";
 
 const formatDate = (date: Date) => {
   const year = date.getFullYear();
@@ -42,17 +41,17 @@ const Tab2: React.FC = () => {
     }
   };
 
-  const handleRefresh = async (event: CustomEvent<RefresherEventDetail>) => {
-    await fetchDiaries(); // 데이터 다시 불러오기
-    event.detail.complete(); // 리프레셔 완료
+  const handleDateChange = async (e: CustomEvent<any>) => {
+    const selectedDate = e.detail.value;
+    if (!selectedDate) return;
+    setDate(selectedDate);
+    await fetchDiaries(); // 선택한 날짜에 해당하는 데이터 다시 불러오기
+    console.log("selected date: ", selectedDate);
   };
 
   useEffect(() => {
     fetchDiaries(); // 컴포넌트 마운트 시 데이터 불러오기
   }, []);
-  
-  console.log(date);
-  console.log(diaries);
 
   return (
     <IonPage>
@@ -67,20 +66,12 @@ const Tab2: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-        <IonRefresher slot="fixed" onIonRefresh={handleRefresh}>
-          <IonRefresherContent></IonRefresherContent>
-        </IonRefresher>
         <div className="diary-content">
           <IonDatetime
             presentation="date"
             locale="ko-KR"
             value={date}
-            onIonChange={(e) => {
-              const v = e.detail.value;
-              if (!v) return;
-              if (Array.isArray(v)) setDate(v[0]);
-              else setDate(v);
-            }}
+            onIonChange={handleDateChange}
             highlightedDates={diaries.map((diary) => ({
               date: diary._date,
               backgroundColor: "#c8e5d0",
